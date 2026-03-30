@@ -236,7 +236,9 @@ VisionResult VisionEngine::detect(const RawFrame& frame) {
     auto pipelineStart = std::chrono::high_resolution_clock::now();
 
     // ── 1. Preprocess ─────────────────────────────────────────
+    auto t1 = std::chrono::high_resolution_clock::now();
     std::vector<float> inputData = preprocessor_->process(frame);
+    auto t2 = std::chrono::high_resolution_clock::now();
 
     // ── 2. Build ExecuTorch input tensor ─────────────────────
     std::vector<executorch::aten::SizesType> shape = {
@@ -252,13 +254,12 @@ VisionResult VisionEngine::detect(const RawFrame& frame) {
     );
 
     // ── 3. Run inference ──────────────────────────────────────
-    auto inferStart = std::chrono::high_resolution_clock::now();
+    auto t3 = std::chrono::high_resolution_clock::now();
 
-    auto result = ort_->module->forward(inputTensor);
+    std::vector<EValue> inputs = { EValue(inputTensor) };
+    auto result = ort_->module->execute("forward", inputs);
 
-    auto inferEnd = std::chrono::high_resolution_clock::now();
-    float inferenceMs = std::chrono::duration<float, std::milli>(
-        inferEnd - inferStart).count();
+    auto t4 = std::chrono::high_resolution_clock::now(); // ← after inference
 
     if (!result.ok()) {
         VisionResult err;
@@ -277,52 +278,52 @@ VisionResult VisionEngine::detect(const RawFrame& frame) {
         return err;
     }
 
-    const auto& boxesTensor  = outputs[0].toTensor();
-    const auto& scoresTensor = outputs[1].toTensor();
-    const auto& classTensor  = outputs[2].toTensor();
-
-    const float* boxes   = boxesTensor.const_data_ptr<float>();
-    const float* scores  = scoresTensor.const_data_ptr<float>();
-    const float* classes = classTensor.const_data_ptr<float>();
+    const float* boxes   = outputs[0].toTensor().const_data_ptr<float>();
+    const float* scores  = outputs[1].toTensor().const_data_ptr<float>();
+    const float* classes = outputs[2].toTensor().const_data_ptr<float>();
 
     const int numDetections = 300;
-
     std::vector<Detection> rawDetections;
 
     for (int i = 0; i < numDetections; ++i) {
-        float score   = scores[i];
-        int classId   = static_cast<int>(classes[i]);
+        float score = scores[i];
+        int classId = static_cast<int>(classes[i]);
 
         if (score < config_.confidenceThreshold) continue;
         if (classId < 0 ||
             classId >= static_cast<int>(kCoco91Labels.size())) continue;
         if (kCoco91Labels[classId].empty()) continue;
 
-//        float cx = boxes[i * 4 + 0];
-//        float cy = boxes[i * 4 + 1];
-//        float w  = boxes[i * 4 + 2];
-//        float h  = boxes[i * 4 + 3];
-
-        // ExecuTorch .pte outputs pixel coords x1,y1,x2,y2 in 384x384 space
-        float x1 = boxes[i * 4 + 0] / 384.0f;
-        float y1 = boxes[i * 4 + 1] / 384.0f;
-        float x2 = boxes[i * 4 + 2] / 384.0f;
-        float y2 = boxes[i * 4 + 3] / 384.0f;
+        float x1 = boxes[i * 4 + 0] / static_cast<float>(config_.inputWidth);
+        float y1 = boxes[i * 4 + 1] / static_cast<float>(config_.inputHeight);
+        float x2 = boxes[i * 4 + 2] / static_cast<float>(config_.inputWidth);
+        float y2 = boxes[i * 4 + 3] / static_cast<float>(config_.inputHeight);
 
         Detection det;
         det.classId    = classId;
         det.label      = kCoco91Labels[classId];
         det.confidence = score;
-        det.bbox       = { x1, y1, x2 - x1, y2 - y1 };  // x, y, w, h normalized
+        det.bbox       = { x1, y1, x2 - x1, y2 - y1 };
         rawDetections.push_back(det);
     }
 
     // ── 5. NMS ────────────────────────────────────────────────
+    auto t5 = std::chrono::high_resolution_clock::now();
     std::vector<Detection> cleanDetections = NMS::apply(
         rawDetections,
         config_.nmsIoUThreshold,
         config_.maxDetections
     );
+    auto t6 = std::chrono::high_resolution_clock::now();
+
+    // ── Timing breakdown ──────────────────────────────────────
+    float preprocessMs  = std::chrono::duration<float, std::milli>(t2-t1).count();
+    float inferenceMs   = std::chrono::duration<float, std::milli>(t4-t3).count();
+    float parseMs       = std::chrono::duration<float, std::milli>(t5-t4).count();
+    float nmsMs         = std::chrono::duration<float, std::milli>(t6-t5).count();
+
+//    printf("Pre: %.1fms | Infer: %.1fms | Parse: %.1fms | NMS: %.1fms\n",
+//           preprocessMs, inferenceMs, parseMs, nmsMs);
 
     // ── 6. Build result ───────────────────────────────────────
     auto pipelineEnd = std::chrono::high_resolution_clock::now();
