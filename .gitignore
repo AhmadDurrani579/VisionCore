@@ -1,0 +1,10 @@
+# Large model files — download separately
+*.pte
+*.onnx
+*.mlmodel
+*.mlpackage
+# Large model files — download separately
+*.pte
+*.onnx
+*.mlmodel
+*.mlpackage
