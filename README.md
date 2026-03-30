@@ -20,7 +20,7 @@ VisionCoreView(
 
 | Street Scene | Apple Store | Food Detection |
 |:---:|:---:|:---:|
-| ![Street](docs/screenshots/street.png) | ![Apple Store](docs/screenshots/apple_store.png) | ![Pizza](docs/screenshots/pizza.png) |
+| ![Street](docs/screenshots/streetImage.PNG) | ![Apple Store](docs/screenshots/Store.PNG) | ![Pizza](docs/screenshots/Pizza.PNG) |
 | bus 92.4%, motorcycle 82.7% | person ×5, laptop ×4 | pizza, cell phone, dining table |
 
 ---
