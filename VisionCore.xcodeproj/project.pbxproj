@@ -7,7 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E04247052F793CB7009A2398 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E04247042F793CB7009A2398 /* Accelerate.framework */; };
 		E07747AC2F773E3D00AA0F4C /* VisionCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E07747A02F773E3D00AA0F4C /* VisionCore.framework */; };
+		E07748052F774E7800AA0F4C /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E07748042F774E7800AA0F4C /* CoreVideo.framework */; };
+		E07748192F77592A00AA0F4C /* VisionCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E07747A02F773E3D00AA0F4C /* VisionCore.framework */; };
+		E077481A2F77592A00AA0F4C /* VisionCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E07747A02F773E3D00AA0F4C /* VisionCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E07748282F775A1700AA0F4C /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E07748272F775A1700AA0F4C /* CoreMedia.framework */; };
+		E077482A2F775A1D00AA0F4C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E07748292F775A1D00AA0F4C /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -18,22 +24,100 @@
 			remoteGlobalIDString = E077479F2F773E3D00AA0F4C;
 			remoteInfo = VisionCore;
 		};
+		E077481B2F77592A00AA0F4C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E07747972F773E3D00AA0F4C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E077479F2F773E3D00AA0F4C;
+			remoteInfo = VisionCore;
+		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		E052C2442F79D30C003B305C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E077481D2F77592A00AA0F4C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				E077481A2F77592A00AA0F4C /* VisionCore.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		E04247042F793CB7009A2398 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		E07747A02F773E3D00AA0F4C /* VisionCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VisionCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E07747AB2F773E3D00AA0F4C /* VisionCoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VisionCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E07747BE2F773E8300AA0F4C /* VisionCoreDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VisionCoreDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E07748042F774E7800AA0F4C /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.0.sdk/System/Library/Frameworks/CoreVideo.framework; sourceTree = DEVELOPER_DIR; };
+		E07748272F775A1700AA0F4C /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.0.sdk/System/Library/Frameworks/CoreMedia.framework; sourceTree = DEVELOPER_DIR; };
+		E07748292F775A1D00AA0F4C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.0.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = DEVELOPER_DIR; };
+		E077482B2F77691700AA0F4C /* CoreML.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreML.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.0.sdk/System/Library/Frameworks/CoreML.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		E07748062F774F8C00AA0F4C /* Exceptions for "VisionCore" folder in "VisionCore" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			publicHeaders = (
+				iOS/VisionCoreWrapper.h,
+				VisionCore.h,
+			);
+			target = E077479F2F773E3D00AA0F4C /* VisionCore */;
+		};
+		E0CEA3912F79F51800CA88A1 /* Exceptions for "VisionCore" folder in "VisionCoreDemo" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				ExecutorchLib.xcframework,
+			);
+			target = E07747BD2F773E8300AA0F4C /* VisionCoreDemo */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+		E037C9BC2F79F610009A5C82 /* Exceptions for "VisionCore" folder in "Embed Frameworks" phase from "VisionCoreDemo" target */ = {
+			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
+			attributesByRelativePath = {
+				ExecutorchLib.xcframework = (CodeSignOnCopy, RemoveHeadersOnCopy, );
+			};
+			buildPhase = E077481D2F77592A00AA0F4C /* Embed Frameworks */;
+			membershipExceptions = (
+				ExecutorchLib.xcframework,
+			);
+		};
+/* End PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		E07747A22F773E3D00AA0F4C /* VisionCore */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				E07748062F774F8C00AA0F4C /* Exceptions for "VisionCore" folder in "VisionCore" target */,
+				E0CEA3912F79F51800CA88A1 /* Exceptions for "VisionCore" folder in "VisionCoreDemo" target */,
+				E037C9BC2F79F610009A5C82 /* Exceptions for "VisionCore" folder in "Embed Frameworks" phase from "VisionCoreDemo" target */,
+			);
 			path = VisionCore;
 			sourceTree = "<group>";
 		};
 		E07747AF2F773E3D00AA0F4C /* VisionCoreTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = VisionCoreTests;
+			sourceTree = "<group>";
+		};
+		E07747BF2F773E8300AA0F4C /* VisionCoreDemo */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = VisionCoreDemo;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -43,6 +127,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E077482A2F775A1D00AA0F4C /* AVFoundation.framework in Frameworks */,
+				E07748282F775A1700AA0F4C /* CoreMedia.framework in Frameworks */,
+				E07748052F774E7800AA0F4C /* CoreVideo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,6 +141,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E07747BB2F773E8300AA0F4C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E04247052F793CB7009A2398 /* Accelerate.framework in Frameworks */,
+				E07748192F77592A00AA0F4C /* VisionCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -62,6 +158,8 @@
 			children = (
 				E07747A22F773E3D00AA0F4C /* VisionCore */,
 				E07747AF2F773E3D00AA0F4C /* VisionCoreTests */,
+				E07747BF2F773E8300AA0F4C /* VisionCoreDemo */,
+				E07748032F774E7700AA0F4C /* Frameworks */,
 				E07747A12F773E3D00AA0F4C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -71,8 +169,21 @@
 			children = (
 				E07747A02F773E3D00AA0F4C /* VisionCore.framework */,
 				E07747AB2F773E3D00AA0F4C /* VisionCoreTests.xctest */,
+				E07747BE2F773E8300AA0F4C /* VisionCoreDemo.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		E07748032F774E7700AA0F4C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E04247042F793CB7009A2398 /* Accelerate.framework */,
+				E077482B2F77691700AA0F4C /* CoreML.framework */,
+				E07748292F775A1D00AA0F4C /* AVFoundation.framework */,
+				E07748272F775A1700AA0F4C /* CoreMedia.framework */,
+				E07748042F774E7800AA0F4C /* CoreVideo.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -96,6 +207,7 @@
 				E077479C2F773E3D00AA0F4C /* Sources */,
 				E077479D2F773E3D00AA0F4C /* Frameworks */,
 				E077479E2F773E3D00AA0F4C /* Resources */,
+				E052C2442F79D30C003B305C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -134,6 +246,30 @@
 			productReference = E07747AB2F773E3D00AA0F4C /* VisionCoreTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		E07747BD2F773E8300AA0F4C /* VisionCoreDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E07747C62F773E8400AA0F4C /* Build configuration list for PBXNativeTarget "VisionCoreDemo" */;
+			buildPhases = (
+				E07747BA2F773E8300AA0F4C /* Sources */,
+				E07747BB2F773E8300AA0F4C /* Frameworks */,
+				E07747BC2F773E8300AA0F4C /* Resources */,
+				E077481D2F77592A00AA0F4C /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E077481C2F77592A00AA0F4C /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				E07747BF2F773E8300AA0F4C /* VisionCoreDemo */,
+			);
+			name = VisionCoreDemo;
+			packageProductDependencies = (
+			);
+			productName = VisionCoreDemo;
+			productReference = E07747BE2F773E8300AA0F4C /* VisionCoreDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -146,8 +282,12 @@
 				TargetAttributes = {
 					E077479F2F773E3D00AA0F4C = {
 						CreatedOnToolsVersion = 26.0.1;
+						LastSwiftMigration = 2600;
 					};
 					E07747AA2F773E3D00AA0F4C = {
+						CreatedOnToolsVersion = 26.0.1;
+					};
+					E07747BD2F773E8300AA0F4C = {
 						CreatedOnToolsVersion = 26.0.1;
 					};
 				};
@@ -161,6 +301,8 @@
 			);
 			mainGroup = E07747962F773E3D00AA0F4C;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = E07747A12F773E3D00AA0F4C /* Products */;
 			projectDirPath = "";
@@ -168,6 +310,7 @@
 			targets = (
 				E077479F2F773E3D00AA0F4C /* VisionCore */,
 				E07747AA2F773E3D00AA0F4C /* VisionCoreTests */,
+				E07747BD2F773E8300AA0F4C /* VisionCoreDemo */,
 			);
 		};
 /* End PBXProject section */
@@ -181,6 +324,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		E07747A92F773E3D00AA0F4C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E07747BC2F773E8300AA0F4C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -204,6 +354,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E07747BA2F773E8300AA0F4C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -211,6 +368,11 @@
 			isa = PBXTargetDependency;
 			target = E077479F2F773E3D00AA0F4C /* VisionCore */;
 			targetProxy = E07747AD2F773E3D00AA0F4C /* PBXContainerItemProxy */;
+		};
+		E077481C2F77592A00AA0F4C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E077479F2F773E3D00AA0F4C /* VisionCore */;
+			targetProxy = E077481B2F77592A00AA0F4C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -346,24 +508,39 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = VVS3USCHVC;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_MODULE_VERIFIER = YES;
+				EXCLUDED_SOURCE_FILE_NAMES = "$(SRCROOT)/VisionCore/executorch-include/**";
 				GENERATE_INFOPLIST_FILE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/VisionCore/executorch-include",
+					"$(SRCROOT)/VisionCore/Core",
+				);
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACH_O_TYPE = mh_dylib;
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-I$(SRCROOT)/VisionCore/executorch-include",
+					"-DUSE_COREML",
+				);
+				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ahmad.iosapp.VisionCore;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -372,6 +549,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_INSTALL_MODULE = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -382,24 +560,39 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = VVS3USCHVC;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_MODULE_VERIFIER = YES;
+				EXCLUDED_SOURCE_FILE_NAMES = "$(SRCROOT)/VisionCore/executorch-include/**";
 				GENERATE_INFOPLIST_FILE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/VisionCore/executorch-include",
+					"$(SRCROOT)/VisionCore/Core",
+				);
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACH_O_TYPE = mh_dylib;
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-I$(SRCROOT)/VisionCore/executorch-include",
+					"-DUSE_COREML",
+				);
+				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ahmad.iosapp.VisionCore;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -452,6 +645,80 @@
 			};
 			name = Release;
 		};
+		E07747C72F773E8400AA0F4C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VVS3USCHVC;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/VisionCore/Core/**";
+				INFOPLIST_KEY_NSCameraUsageDescription = "VisionCore needs camera to detect objects in real time";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MACH_O_TYPE = mh_execute;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = "-all_load";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ahmad.iosapp.VisionCoreDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E07747C82F773E8400AA0F4C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VVS3USCHVC;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/VisionCore/Core/**";
+				INFOPLIST_KEY_NSCameraUsageDescription = "VisionCore needs camera to detect objects in real time";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MACH_O_TYPE = mh_execute;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = "-all_load";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ahmad.iosapp.VisionCoreDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -478,6 +745,15 @@
 			buildConfigurations = (
 				E07747B82F773E3D00AA0F4C /* Debug */,
 				E07747B92F773E3D00AA0F4C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E07747C62F773E8400AA0F4C /* Build configuration list for PBXNativeTarget "VisionCoreDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E07747C72F773E8400AA0F4C /* Debug */,
+				E07747C82F773E8400AA0F4C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
