@@ -310,4 +310,4 @@ MIT License — see [LICENSE](LICENSE) for details.
 
 **Ahmad Durrani**  
 Senior iOS Engineer · London  
-[GitHub](https://github.com/AhmadDurrani579) · [LinkedIn](https://linkedin.com/in/ahmaddurrani)
+[GitHub](https://github.com/AhmadDurrani579) · [LinkedIn](https://www.linkedin.com/in/ahmad-yar-98990690 )
